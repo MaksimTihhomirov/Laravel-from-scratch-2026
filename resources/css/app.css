@@ -1,9 +1,24 @@
-@import 'tailwindcss';
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+nav {
+    margin-bottom: 30px;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.card {
+    background: #ece8e1;
+    padding: 40px;
+    width: 600px;
+    margin-top: 30px;
+    margin-left: 520px;
+    text-align: center;
 }
