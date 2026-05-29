@@ -1,3 +1,6 @@
 <x-layout>
-    <h1>{{ $greeting }}, {{ $person }}!</h1>
+@if (true)
+<a href="/post/1/edit">Edit</a>
+@endif
+
 </x-layout>
