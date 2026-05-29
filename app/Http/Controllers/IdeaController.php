@@ -14,8 +14,17 @@ class IdeaController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('ideas.create');
+    }
+
     public function store(Request $request)
     {
+        $request->validate([
+            'description' => ['required', 'min:10'],
+        ]);
+
         Idea::create([
             'description' => $request->description,
             'state' => 'pending',
@@ -44,7 +53,7 @@ class IdeaController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('/ideas/' . $idea->id);
+        return redirect("/ideas/{$idea->id}");
     }
 
     public function destroy(Idea $idea)
