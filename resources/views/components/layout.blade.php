@@ -1,25 +1,20 @@
-<!DOCTYPE html>
+@props([
+    'title' => 'Laracasts'
+])
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Project</title>
+    <title>{{ $title }}</title>
 
-    @vite(['resources/css/app.css'])
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-</nav>
-<main>
-
-
-{{ $slot }}
-
-</main>
-
+<body class="bg-gray-700 p-6 max-w-xl mx-auto text-white">
+    <main>
+        {{ $slot }}
+    </main>
 </body>
 </html>

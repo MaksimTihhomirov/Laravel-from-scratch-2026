@@ -3,14 +3,24 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    $ideas = session()->get('ideas', []);
 
-    return view('welcome', [
-        'greeting' => 'Hello',
-        'person' => request('person', 'John')
+    return view('ideas', [
+        'ideas' => $ideas,
     ]);
-
 });
 
-Route::view('/about', 'about');
+Route::post('/ideas', function () {
+    $idea = request('idea');
 
-Route::view('/contact', 'contact');
+    session()->push('ideas', $idea);
+
+    return redirect('/');
+});
+
+// Temporary
+Route::get('/delete-ideas', function () {
+    session()->forget('ideas');
+
+    return redirect('/');
+});
