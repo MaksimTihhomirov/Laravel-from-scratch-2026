@@ -2,39 +2,27 @@
     <form method="POST" action="/ideas">
         @csrf
 
-        <div class="col-span-full">
-            <label
-                for="description"
-                class="block text-sm/6 font-medium text-white"
-            >
-                Create New Idea
+        <div class="form-control">
+            <label for="description" class="label">
+                <span class="label-text font-semibold">Create New Idea</span>
             </label>
 
-            <div class="mt-2">
-                <textarea
-                    id="description"
-                    name="description"
-                    rows="3"
-                    class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 outline-white/10"
-                >{{ old('description') }}</textarea>
+            <textarea
+                id="description"
+                name="description"
+                rows="3"
+                class="textarea textarea-bordered w-full"
+            >{{ old('description') }}</textarea>
 
-                @error('description')
-                    <p class="text-xs text-red-500 mt-1">
-                        {{ $message }}
-                    </p>
-                @enderror
-            </div>
+            <x-forms.error name="description" />
 
-            <p class="mt-3 text-sm/6 text-gray-400">
+            <p class="mt-3 text-sm">
                 Have an idea you want to save for later?
             </p>
         </div>
 
-        <div class="mt-6 flex items-center gap-x-6">
-            <button
-                type="submit"
-                class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white"
-            >
+        <div class="mt-6">
+            <button type="submit" class="btn btn-primary">
                 Save
             </button>
         </div>
