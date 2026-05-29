@@ -2,8 +2,8 @@
     <form method="POST" action="/ideas">
         @csrf
 
-        <div class="col-span-full">
-            <label for="idea" class="block text-sm/6 font-medium text-white">
+        <div>
+            <label for="idea" class="block text-sm font-medium text-white">
                 New Idea
             </label>
 
@@ -12,32 +12,38 @@
                     id="idea"
                     name="idea"
                     rows="3"
-                    class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                    class="block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10"
                 ></textarea>
             </div>
 
-            <p class="mt-3 text-sm/6 text-gray-400">
+            <p class="mt-3 text-sm text-gray-400">
                 Have an idea you want to save for later?
             </p>
         </div>
 
-        <div class="mt-6 flex items-center gap-x-6">
+        <div class="mt-6">
             <button
                 type="submit"
-                class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
+                class="rounded-md bg-indigo-500 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
             >
                 Save
             </button>
         </div>
     </form>
 
-    <section class="mt-10">
-        <h2 class="text-lg font-bold">Your Ideas</h2>
+    @if ($ideas->count())
+        <section class="mt-10">
+            <h2 class="text-lg font-bold text-white">
+                Your Ideas
+            </h2>
 
-        <ul class="mt-4 space-y-2">
-            @foreach ($ideas as $idea)
-                <li>{{ $idea }}</li>
-            @endforeach
-        </ul>
-    </section>
+            <ul class="mt-4 space-y-2">
+                @foreach ($ideas as $idea)
+                    <li class="text-white">
+                        {{ $idea->description }}
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
 </x-layout>
